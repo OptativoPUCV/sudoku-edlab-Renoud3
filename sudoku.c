@@ -43,7 +43,15 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-
+  //int f, c, kf, kc;
+  //int vector[9];
+  //f = 0;
+  //do {
+  //  for (c = 0 ; c < 9 ; c++) {
+  //    vector[c]
+  //  }
+  //  f++;
+  //} while ();
     return 1;
 }
 
