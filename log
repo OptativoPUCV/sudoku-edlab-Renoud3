@@ -1,0 +1,47 @@
+Wed Oct 14 19:37:54 UTC 2020: 
+ sudoku.c | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+In file included from test.c:5:0:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:59:11: error: suggest parentheses around assignment used as truth value [-Werror=parentheses]
+       if (n -> sudo[i][j] = num) {
+           ^
+sudoku.c:64:22: error: ‘lista’ undeclared (first use in this function); did you mean ‘list’?
+             pushBack(lista , nuevo);
+                      ^~~~~
+                      list
+sudoku.c:64:22: note: each undeclared identifier is reported only once for each function it appears in
+cc1: all warnings being treated as errors
+Compilation failed
+Wed Oct 14 19:41:52 UTC 2020: 
+ sudoku.c | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+In file included from test.c:5:0:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:59:11: error: suggest parentheses around assignment used as truth value [-Werror=parentheses]
+       if (n -> sudo[i][j] = num) {
+           ^
+sudoku.c:59:27: error: ‘num’ may be used uninitialized in this function [-Werror=maybe-uninitialized]
+       if (n -> sudo[i][j] = num) {
+           ~~~~~~~~~~~~~~~~^~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+Wed Oct 14 19:42:55 UTC 2020: 
+ sudoku.c | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+In file included from test.c:5:0:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:59:11: error: suggest parentheses around assignment used as truth value [-Werror=parentheses]
+       if (n->sudo[i][j] = num) {
+           ^
+sudoku.c:59:25: error: ‘num’ may be used uninitialized in this function [-Werror=maybe-uninitialized]
+       if (n->sudo[i][j] = num) {
+           ~~~~~~~~~~~~~~^~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+Wed Oct 14 19:44:18 UTC 2020: 
+ sudoku.c | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+ tests:  2|4
+total_score: 15/70
+3f33bd1
