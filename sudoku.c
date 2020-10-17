@@ -98,28 +98,37 @@ List* get_adj_nodes(Node* n){
 
 
 int is_final(Node* n){
+  int i;
+  int j;
+  for (i = 0 ; i < 9 ; i++) {
+    for (j = 0 ; j < 9 ; j++) {
+      if (n -> sudo[i][j] == 0) {
+        return 1;
+      }
+    }
+  }
     return 0;
 }
 
 Node* DFS(Node* initial, int* cont){
-  //Stack * S = createStack();
-  //push(S , initial);
-  //cont = 0;
-  //while (get_size(S) != 0) {
-    //Node * initial = top(S);
-    //pop(S);
-    //if (is_final(initial)) {
-      //return initial;
-    //}
-    //List * ady = get_adj_nodes(initial);
-    //Node * aux = first(ady);
-    //while (aux != NULL) {
-      //push(S , initial);
-      //aux = next(ady);
-    //}
-    //cont++;
-    //free(initial);
-  //}
+  Stack * S = createStack();
+  push(S , initial);
+  cont = 0;
+  while (get_size(S) != 0) {
+    Node * initial = top(S);
+    pop(S);
+    if (is_final(initial)) {
+      return initial;
+    }
+    List * ady = get_adj_nodes(initial);
+    Node * aux = first(ady);
+    while (aux != NULL) {
+      push(S , initial);
+      aux = next(ady);
+    }
+    cont++;
+    free(initial);
+  }
   return NULL;
 }
 
