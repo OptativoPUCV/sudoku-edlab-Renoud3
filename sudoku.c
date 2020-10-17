@@ -43,16 +43,32 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-  //int f, c, kf, kc;
-  //int vector[9];
-  //f = 0;
+  //int f, c, kf, kc, i, j;
+  //Node * aux = createNode();
+  //f = i;
   //do {
-  //  for (c = 0 ; c < 9 ; c++) {
-  //    vector[c]
-  //  }
-  //  f++;
-  //} while ();
-    return 1;
+    //for (f = 0 ; f < 9 ; f++) {
+      //if (n -> sudo[f][c] == aux -> sudo[i][j]){
+        //return 0;
+      //}
+      //else {
+        //i++;
+      //}
+    //}
+  //} while ((f < 9) && (i < 9));
+  //c = j;
+  //while ((c < 9) && (j < 9)) {
+    //for (c = 0 ; c < 9 ; c++) {
+      //if (n -> sudo[i][j] == aux -> sudo[f][c]) {
+        //return 0;
+      //}
+      //else {
+        //j++;
+      //}
+    //}
+  //}
+  
+  return 1;
 }
 
 
@@ -86,6 +102,24 @@ int is_final(Node* n){
 }
 
 Node* DFS(Node* initial, int* cont){
+  Stack * S = createStack();
+  push(S , initial);
+  cont = 0;
+  while (get_size(S) != 0) {
+    Node * initial = top(S);
+    pop(S);
+    if (is_final(initial)) {
+      return initial;
+    }
+    List * ady = get_adj_nodes(initial);
+    Node * aux = first(ady);
+    while (aux != NULL) {
+      push(S , initial);
+      aux = next(ady);
+    }
+    cont++;
+    free(initial);
+  }
   return NULL;
 }
 
