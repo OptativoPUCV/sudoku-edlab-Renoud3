@@ -43,39 +43,58 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-  /*int f , c , kf , kc , i , j;
-  int k , p;
+  int f;
+  int c;
+  int sub;
+  int p;
+  int sf;
+  int sc;
   Node * aux = n;
-  do {
-    for (f = 0 ; f < 9 ; f++) {
-      for (i = 0 ; i < 9 ; i++) {
-        if (n -> sudo[f][c] == aux -> sudo[i][j]){
+  for (f = 0 ; f < 9 ; f++){
+    for (c = 0 ; c < 9 ; c++){
+      for (sub = 0 ; sub < 9; sub++){
+        if ((aux -> sudo[f][sub] == aux -> sudo[f][c]) || (aux -> sudo[sub][c] == aux -> sudo[f][c])) {
           return 0;
         }
       }
-    }
-  } while ((f < 9) && (i < 9));
-  while ((c < 9) && (j < 9)) {
-    for (c = 0 ; c < 9 ; c++) {
-      for (j = 0 ; j < 9 ; j++){
-        if (n -> sudo[f][c] == aux -> sudo[i][j]){
+      if ((f <= 2) && (c <= 2)){
+        sub = 0;
+      }
+      if ((f <= 2) && ((c >= 3) && (c <= 5))){
+        sub = 1;
+      }
+      if ((f <= 2) && ((c >= 6) && (c <= 8))){
+        sub = 2;
+      }
+      if (((f >= 3) && (f <= 5)) && (c <= 2)){
+        sub = 3;
+      }
+      if (((f >= 3) && (f <= 5)) && ((c >= 3) && (c <= 5))){ 
+        sub = 4;
+      }
+      if (((f >= 3) && (f <= 5)) && ((c >= 6) && (c <= 8))){
+        sub = 5;
+      }
+      if (((f >= 6) && (f <= 8)) && (c <= 2)){
+        sub = 6;
+      }
+      if (((f >= 6) && (f <= 8)) && ((c >= 3) && (c <= 5))){
+        sub = 7;
+      }
+      if (((f >= 6) && (f <= 8)) && ((c >= 6) && (c <= 8))){
+        sub = 8;
+      }
+      for (p = 0 ; p < 9 ; p++){
+        sf = 3 * (sub / 3) + (p / 3);
+        sc = 3 * (sub % 3) + (p % 3);
+        if (aux -> sudo[sf][sc] == aux -> sudo[f][c]){
           return 0;
         }
       }
     }
   }
-  for (k = 0; k < 9 ; k++){
-    for (p = 0 ; p < 9 ; p++){
-      int kf = 3 * (k/3) + (p/3);
-      int kc = 3 * (k%3) + (p%3);
-      if (n -> sudo[kf][kc] == aux -> sudo[kf][kc]){
-        return 0;
-      }
-    }
-  }
-  */return 1;
+  return 1;
 }
-
 
 List* get_adj_nodes(Node* n){
   int i;
