@@ -54,7 +54,7 @@ int is_valid(Node* n){
     for (c = 0 ; c < 9 ; c++){
       for (sub = 0 ; sub < 9; sub++){
         if ((aux -> sudo[f][sub] == aux -> sudo[f][c]) || (aux -> sudo[sub][c] == aux -> sudo[f][c])) {
-          return 1;
+          return 0;
         }
       }
       if ((f <= 2) && (c <= 2)){
@@ -88,12 +88,12 @@ int is_valid(Node* n){
         sf = 3 * (sub / 3) + (p / 3);
         sc = 3 * (sub % 3) + (p % 3);
         if (aux -> sudo[sf][sc] == aux -> sudo[f][c]) {
-          return 1;
+          return 0;
         }
       }
     }
   }
-  return 0;
+  return 1;
 }
 
 List* get_adj_nodes(Node* n){
