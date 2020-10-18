@@ -43,32 +43,37 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-  //int f, c, kf, kc, i, j;
-  //Node * aux = createNode();
-  //f = i;
-  //do {
-    //for (f = 0 ; f < 9 ; f++) {
-      //if (n -> sudo[f][c] == aux -> sudo[i][j]){
-        //return 0;
-      //}
-      //else {
-        //i++;
-      //}
-    //}
-  //} while ((f < 9) && (i < 9));
-  //c = j;
-  //while ((c < 9) && (j < 9)) {
-    //for (c = 0 ; c < 9 ; c++) {
-      //if (n -> sudo[i][j] == aux -> sudo[f][c]) {
-        //return 0;
-      //}
-      //else {
-        //j++;
-      //}
-    //}
-  //}
-  
-  return 1;
+  /*int f , c , kf , kc , i , j;
+  int k , p;
+  Node * aux = n;
+  do {
+    for (f = 0 ; f < 9 ; f++) {
+      for (i = 0 ; i < 9 ; i++) {
+        if (n -> sudo[f][c] == aux -> sudo[i][j]){
+          return 0;
+        }
+      }
+    }
+  } while ((f < 9) && (i < 9));
+  while ((c < 9) && (j < 9)) {
+    for (c = 0 ; c < 9 ; c++) {
+      for (j = 0 ; j < 9 ; j++){
+        if (n -> sudo[f][c] == aux -> sudo[i][j]){
+          return 0;
+        }
+      }
+    }
+  }
+  for (k = 0; k < 9 ; k++){
+    for (p = 0 ; p < 9 ; p++){
+      int kf = 3 * (k/3) + (p/3);
+      int kc = 3 * (k%3) + (p%3);
+      if (n -> sudo[kf][kc] == aux -> sudo[kf][kc]){
+        return 0;
+      }
+    }
+  }
+  */return 1;
 }
 
 
