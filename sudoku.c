@@ -52,10 +52,10 @@ int is_valid(Node* n){
   Node * aux = n;
   for (f = 0 ; f < 9 ; f++){
     for (c = 0 ; c < 9 ; c++){
-      for (sub = 0 ; sub < 9; sub++){
-        if (aux -> sudo[f][c] == 0){
+      if (aux -> sudo[f][c] == 0){
           continue;
-        }
+      }
+      for (sub = 0 ; sub < 9; sub++){
         if (aux -> sudo[f][sub] == aux -> sudo[f][c]){
           if (sub != c) {
             return 0;
@@ -98,7 +98,9 @@ int is_valid(Node* n){
         sf = 3 * (sub / 3) + (p / 3);
         sc = 3 * (sub % 3) + (p % 3);
         if (aux -> sudo[sf][sc] == aux -> sudo[f][c]) {
-          return 0;
+          if ((sf != f) || (sc != c)) {
+            return 0;
+          }
         }
       }
     }
