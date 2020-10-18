@@ -153,7 +153,7 @@ Node* DFS(Node* initial, int* cont){
   while (get_size(S) != 0) {
     Node * initial = top(S);
     pop(S);
-    if (is_final(initial) == 0) {
+    if (is_final(initial)) {
       return initial;
     }
     List * ady = get_adj_nodes(initial);
