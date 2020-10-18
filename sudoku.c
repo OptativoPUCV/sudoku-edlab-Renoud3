@@ -87,7 +87,7 @@ int is_valid(Node* n){
       for (p = 0 ; p < 9 ; p++){
         sf = 3 * (sub / 3) + (p / 3);
         sc = 3 * (sub % 3) + (p % 3);
-        if (aux -> sudo[sf][sc] == aux -> sudo[f][c]){
+        if ((aux -> sudo[sf][c] == aux -> sudo[f][c]) || (aux -> sudo[f][sc] == aux -> sudo[f][c])) {
           return 0;
         }
       }
