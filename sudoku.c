@@ -56,8 +56,15 @@ int is_valid(Node* n){
         if (aux -> sudo[f][c] == 0){
           continue;
         }
-        if ((aux -> sudo[f][sub] == aux -> sudo[f][c]) || (aux -> sudo[sub][c] == aux -> sudo[f][c])) {
+        if (aux -> sudo[f][sub] == aux -> sudo[f][c]){
+          if (sub != c) {
+            return 0;
+          }
+        }
+        if (aux -> sudo[sub][c] == aux -> sudo[f][c]){
+          if (sub != f){
           return 0;
+          }
         }
       }
       if ((f <= 2) && (c <= 2)){
